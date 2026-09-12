@@ -18,9 +18,9 @@ export function App() {
     : state.stage === 'BLOCKED' ? 'No eligible destination' : 'Your money has a plan.';
   if (view === 'historical') return <div className="app-shell">
     <header className="topbar"><button className="brand brand-button" onClick={() => setView('demo')} aria-label="Carry home"><span className="brand-mark">↗</span>CARRY<span className="brand-sub">AUTOPILOT</span></button>
-      <div className="header-actions"><span className="demo-badge historical-badge"><i /> HISTORICAL AI REPLAY</span><button className="text-button" onClick={() => setView('demo')}>Back to demo ↺</button></div></header>
+      <div className="header-actions"><span className="demo-badge historical-badge"><i /> HISTORICAL AI REPLAY · STORY MODE</span><button className="text-button" onClick={() => setView('demo')}>Back to demo ↺</button></div></header>
     <HistoricalReplay onExit={() => setView('demo')} />
-    <footer><span>CARRY <span className="footer-dot">/</span> HISTORICAL AI REPLAY</span><p>Real historical signals. Modeled execution costs. <span>Hackathon MVP.</span></p></footer>
+    <footer><span>CARRY <span className="footer-dot">/</span> HISTORICAL AI REPLAY</span><p>Mocked historical story for a clearer product demo. <span>Hackathon MVP.</span></p></footer>
   </div>;
   return <div className="app-shell">
     <header className="topbar"><a className="brand" href="./" aria-label="Carry home"><span className="brand-mark">↗</span>CARRY<span className="brand-sub">AUTOPILOT</span></a>
@@ -37,7 +37,7 @@ export function App() {
           {state.error && <p className="error" role="alert">{state.error}</p>}
           <p id="deposit-note" className="deposit-note">◈ Demo funds only. No wallet connection. No real transactions.</p>
         </form>
-        <button className="secondary-button replay-launch" type="button" onClick={() => setView('historical')}><span>REAL DATA</span> RUN HISTORICAL AI REPLAY <b>→</b></button>
+        <button className="secondary-button replay-launch" type="button" onClick={() => setView('historical')}><span>STORY MODE</span> RUN HISTORICAL AI REPLAY <b>→</b></button>
       </section>
       <section className="landing-art" aria-label="USDC, Argentina and Brazil opportunities"><Orbit /><div className="art-caption"><span className="live-small"><i /> DETERMINISTIC BY DESIGN</span><p>Higher yield isn't always a better move.<br /><strong>Autopilot does the math.</strong></p></div></section>
       <div className="landing-principles"><div><span>01</span><strong>Deposit once</strong><p>One starting point. Three markets.</p></div><div><span>02</span><strong>Let the math decide</strong><p>Yield, FX and risk in one clear decision.</p></div><div><span>03</span><strong>Move with a reason</strong><p>Only when the improvement justifies it.</p></div></div>

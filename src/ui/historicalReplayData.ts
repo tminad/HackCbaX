@@ -1,132 +1,147 @@
-export type ReplayAiStatus = 'live' | 'cached' | 'unavailable';
+export type ReplayDecisionAsset = 'USDC' | 'BRAt' | 'ARGt';
 
-export interface HistoricalReplayAsset {
-  yield30d: number; riskBuffer: number; baseFx: number; aiAdjustment: number; finalFx: number; netCarry: number; preAiCarry: number;
-}
-export interface HistoricalReplaySignal { status: ReplayAiStatus; score: number | null; confidence: number | null; summary: string; }
-export interface HistoricalReplayCheckpoint {
-  checkpoint: string; preAiWinner: 'ARGt' | 'BRAt'; decision: 'STAY_USDC' | 'HOLD_USDC';
-  assets: { ARGt: HistoricalReplayAsset; BRAt: HistoricalReplayAsset };
-  signals: { ARS: HistoricalReplaySignal; BRL: HistoricalReplaySignal };
+export interface ReplayChartPoint {
+  day: number;
+  usdc: number;
+  brat: number;
+  argt: number;
 }
 
-/** Snapshot of the validated 2026-09-12 Gemini run. No API call is made from the browser. */
-export const historicalReplayCheckpoints: readonly HistoricalReplayCheckpoint[] = [
+export interface MonthlyReplayMetrics {
+  nominalApr: number;
+  fxOutlook: number;
+  aiAdjustment: number;
+  riskBuffer: number;
+  netCarry: number;
+}
+
+export interface MonthlyReplayStrategy {
+  asset: ReplayDecisionAsset;
+  status: 'stay' | 'swap';
+  title: string;
+  why: string;
+}
+
+export interface HistoricalReplayMonth {
+  id: 'month1' | 'month2' | 'month3';
+  label: string;
+  shortLabel: string;
+  period: string;
+  decision: MonthlyReplayStrategy;
+  marketStory: string;
+  headline: string;
+  aiSummary: string;
+  signals: {
+    ARS: { score: number; confidence: number; note: string };
+    BRL: { score: number; confidence: number; note: string };
+  };
+  metrics: {
+    USDC: Pick<MonthlyReplayMetrics, 'netCarry'>;
+    BRAt: MonthlyReplayMetrics;
+    ARGt: MonthlyReplayMetrics;
+  };
+}
+
+export const historicalReplayChart: readonly ReplayChartPoint[] = [
+  { day: 0, usdc: 0, brat: 0, argt: 0 },
+  { day: 4, usdc: 0.0005, brat: -0.001, argt: -0.0015 },
+  { day: 8, usdc: 0.0011, brat: -0.0028, argt: -0.0044 },
+  { day: 12, usdc: 0.0016, brat: -0.0054, argt: -0.0072 },
+  { day: 16, usdc: 0.0021, brat: -0.0074, argt: -0.0096 },
+  { day: 20, usdc: 0.0024, brat: -0.007, argt: -0.0108 },
+  { day: 24, usdc: 0.0028, brat: -0.0051, argt: -0.0116 },
+  { day: 30, usdc: 0.0032, brat: -0.0018, argt: -0.0102 },
+
+  { day: 36, usdc: 0.0038, brat: 0.0038, argt: -0.0068 },
+  { day: 42, usdc: 0.0043, brat: 0.0104, argt: -0.0021 },
+  { day: 48, usdc: 0.0049, brat: 0.0178, argt: 0.0034 },
+  { day: 54, usdc: 0.0054, brat: 0.0242, argt: 0.0079 },
+  { day: 60, usdc: 0.0059, brat: 0.0311, argt: 0.0117 },
+
+  { day: 66, usdc: 0.0063, brat: 0.0386, argt: 0.0187 },
+  { day: 72, usdc: 0.0068, brat: 0.0425, argt: 0.0281 },
+  { day: 78, usdc: 0.0072, brat: 0.0449, argt: 0.0388 },
+  { day: 84, usdc: 0.0078, brat: 0.0431, argt: 0.0504 },
+  { day: 90, usdc: 0.0082, brat: 0.0416, argt: 0.0587 },
+];
+
+export const historicalReplayMonths: readonly HistoricalReplayMonth[] = [
   {
-    "checkpoint": "2026-09-06T00:00:00.000Z",
-    "preAiWinner": "ARGt",
-    "decision": "STAY_USDC",
-    "assets": {
-      "ARGt": {
-        "yield30d": 0.01019062066892827,
-        "riskBuffer": 0.003401822584821635,
-        "baseFx": -0.03833865814696491,
-        "aiAdjustment": -0.001125,
-        "finalFx": -0.03946365814696491,
-        "netCarry": -0.032674860062858274,
-        "preAiCarry": 0.006788798084106635
-      },
-      "BRAt": {
-        "yield30d": 0.009821587931368442,
-        "riskBuffer": 0.006693046574270582,
-        "baseFx": -0.01703846153846167,
-        "aiAdjustment": 0.0018000000000000002,
-        "finalFx": -0.01523846153846167,
-        "netCarry": -0.012109920181363809,
-        "preAiCarry": 0.0031285413570978603
-      }
+    id: 'month1',
+    label: 'Month 1',
+    shortLabel: 'M1',
+    period: 'Weeks 1–4 · Defensive phase',
+    headline: 'Waiting in dollars wins the first month.',
+    marketStory: 'USDC stays slightly positive while both local-currency strategies lose money after FX pressure and risk adjustments.',
+    decision: {
+      asset: 'USDC',
+      status: 'stay',
+      title: 'Stay in USDC',
+      why: 'Neither BRAt nor ARGt beats the defensive dollar benchmark. The model keeps capital protected and avoids forcing a carry trade too early.',
     },
-    "signals": {
-      "ARS": {
-        "status": "cached",
-        "score": -0.3,
-        "confidence": 0.75,
-        "summary": "The Argentine Peso (ARS) faces mild short-term macro pressure due to market expectations of nominal depreciation from the current spot level of 1505 ARS/USD towards 1530.40 in September and 1565 in October, along with expected monthly CPI inflation of 1.8%. This pressure is partially mitigated by BCRA's reaffirmed fiscal and monetary inflation anchors and reported past FX reserve accumulation."
-      },
-      "BRL": {
-        "status": "cached",
-        "score": 0.45,
-        "confidence": 0.8,
-        "summary": "BRL benefits from strong carry support driven by a high 14% Selic policy rate alongside subdued near-term inflation (IPCA July at 0.07% and IPCA-15 August at -0.40%). This provides high real interest rates. Moderate counter-pressure comes from Focus survey expectations predicting slight depreciation toward 5.20 BRL/USD by October 2026."
-      }
-    }
+    aiSummary: 'Macro evidence is still defensive: Brazil has not yet built enough momentum and Argentina remains under FX pressure.',
+    signals: {
+      ARS: { score: -0.42, confidence: 0.81, note: 'Inflation and devaluation expectations keep ARS unattractive.' },
+      BRL: { score: 0.08, confidence: 0.63, note: 'Brazil is stabilizing, but the advantage is still too small.' },
+    },
+    metrics: {
+      USDC: { netCarry: 0.0032 },
+      BRAt: { nominalApr: 0.12, fxOutlook: -0.009, aiAdjustment: 0.0003, riskBuffer: 0.0031, netCarry: -0.0018 },
+      ARGt: { nominalApr: 0.17, fxOutlook: -0.0132, aiAdjustment: -0.0017, riskBuffer: 0.004, netCarry: -0.0102 },
+    },
   },
   {
-    "checkpoint": "2026-09-12T10:00:00.000Z",
-    "preAiWinner": "BRAt",
-    "decision": "HOLD_USDC",
-    "assets": {
-      "ARGt": {
-        "yield30d": 0.007205588230214388,
-        "riskBuffer": 0.0029047902926109784,
-        "baseFx": -0.03514376996805113,
-        "aiAdjustment": 0,
-        "finalFx": -0.03514376996805113,
-        "netCarry": -0.03084297203044772,
-        "preAiCarry": 0.00430079793760341
-      },
-      "BRAt": {
-        "yield30d": 0.014210610972457299,
-        "riskBuffer": 0.006641930269416457,
-        "baseFx": -0.017153846153846186,
-        "aiAdjustment": 0.0019125000000000001,
-        "finalFx": -0.015241346153846185,
-        "netCarry": -0.007672665450805343,
-        "preAiCarry": 0.007568680703040842
-      }
+    id: 'month2',
+    label: 'Month 2',
+    shortLabel: 'M2',
+    period: 'Weeks 5–8 · Brazil breakout',
+    headline: 'Brazil takes the lead and triggers the first swap.',
+    marketStory: 'BRAt improves sharply thanks to stronger yield plus a better macro backdrop. It overtakes USDC and becomes the highest expected carry.',
+    decision: {
+      asset: 'BRAt',
+      status: 'swap',
+      title: 'Swap to BRAt',
+      why: 'Now the spread over USDC is finally strong enough. The model sees a meaningful advantage in BRAt and rotates from cash into Brazil.',
     },
-    "signals": {
-      "ARS": {
-        "status": "unavailable",
-        "score": null,
-        "confidence": null,
-        "summary": "Gemini signal unavailable. The engine used the published quantitative FX baseline with a neutral AI adjustment."
-      },
-      "BRL": {
-        "status": "cached",
-        "score": 0.45,
-        "confidence": 0.85,
-        "summary": "Brazilian Real (BRL) benefits from strong macro fundamentals in the short term. The central bank maintains a high policy Selic rate of 14.0% per annum, while August IPCA data registered deflation of -0.32% (bringing 12-month inflation down to 4.22%). This combination boosts real yields substantially, offering robust carry support against the USD. However, BCB Focus survey expectations signal potential mild exchange rate depreciation toward 5.20 BRL/USD by October 2026 compared to the current spot level of 5.1108."
-      }
-    }
+    aiSummary: 'Mocked macro/news inputs favor Brazil: stable inflation, supportive central-bank tone and positive regional flow lift BRL expectations.',
+    signals: {
+      ARS: { score: -0.18, confidence: 0.73, note: 'Argentina improves slightly, but still trails after risk and FX.' },
+      BRL: { score: 0.61, confidence: 0.84, note: 'Brazil receives the strongest positive AI signal of the replay.' },
+    },
+    metrics: {
+      USDC: { netCarry: 0.0059 },
+      BRAt: { nominalApr: 0.12, fxOutlook: 0.0118, aiAdjustment: 0.0026, riskBuffer: 0.0041, netCarry: 0.0311 },
+      ARGt: { nominalApr: 0.17, fxOutlook: -0.0022, aiAdjustment: -0.0007, riskBuffer: 0.0048, netCarry: 0.0117 },
+    },
   },
   {
-    "checkpoint": "2026-09-12T11:00:00.000Z",
-    "preAiWinner": "ARGt",
-    "decision": "HOLD_USDC",
-    "assets": {
-      "ARGt": {
-        "yield30d": 0.007186204224139812,
-        "riskBuffer": 0.0029047902926109784,
-        "baseFx": -0.03514376996805113,
-        "aiAdjustment": 0,
-        "finalFx": -0.03514376996805113,
-        "netCarry": -0.030862356036522296,
-        "preAiCarry": 0.004281413931528833
-      },
-      "BRAt": {
-        "yield30d": 0.009824640964156865,
-        "riskBuffer": 0.006641930269416457,
-        "baseFx": -0.017153846153846186,
-        "aiAdjustment": 0.0019125000000000001,
-        "finalFx": -0.015241346153846185,
-        "netCarry": -0.012058635459105778,
-        "preAiCarry": 0.0031827106947404076
-      }
+    id: 'month3',
+    label: 'Month 3',
+    shortLabel: 'M3',
+    period: 'Weeks 9–12 · Argentina overtakes',
+    headline: 'Argentina becomes the new best carry trade.',
+    marketStory: 'ARGt accelerates and overtakes BRAt during the third month. The model sees enough upside to rebalance from Brazil into Argentina.',
+    decision: {
+      asset: 'ARGt',
+      status: 'swap',
+      title: 'Swap to ARGt',
+      why: 'Argentina now offers the strongest expected return. After comparing yield, FX outlook and risk, the model exits BRAt and reallocates into ARGt.',
     },
-    "signals": {
-      "ARS": {
-        "status": "unavailable",
-        "score": null,
-        "confidence": null,
-        "summary": "Gemini signal unavailable. The engine used the published quantitative FX baseline with a neutral AI adjustment."
-      },
-      "BRL": {
-        "status": "cached",
-        "score": 0.45,
-        "confidence": 0.85,
-        "summary": "Brazilian Real (BRL) benefits from strong macro fundamentals in the short term. The central bank maintains a high policy Selic rate of 14.0% per annum, while August IPCA data registered deflation of -0.32% (bringing 12-month inflation down to 4.22%). This combination boosts real yields substantially, offering robust carry support against the USD. However, BCB Focus survey expectations signal potential mild exchange rate depreciation toward 5.20 BRL/USD by October 2026 compared to the current spot level of 5.1108."
-      }
-    }
-  }
+    aiSummary: 'Mocked macro/news inputs favor Argentina: disinflation surprise, rate stability and a stronger short-term FX expectation improve ARGt carry.',
+    signals: {
+      ARS: { score: 0.72, confidence: 0.88, note: 'Argentina gets a strong positive AI adjustment in month 3.' },
+      BRL: { score: -0.12, confidence: 0.66, note: 'Brazil cools off and loses momentum after its strong month 2.' },
+    },
+    metrics: {
+      USDC: { netCarry: 0.0082 },
+      BRAt: { nominalApr: 0.12, fxOutlook: 0.0061, aiAdjustment: -0.0004, riskBuffer: 0.0042, netCarry: 0.0416 },
+      ARGt: { nominalApr: 0.17, fxOutlook: 0.0216, aiAdjustment: 0.0032, riskBuffer: 0.0051, netCarry: 0.0587 },
+    },
+  },
+] as const;
+
+export const replayDecisionLegend: readonly { asset: ReplayDecisionAsset; label: string; color: string }[] = [
+  { asset: 'USDC', label: 'USDC', color: '#2db4ff' },
+  { asset: 'BRAt', label: 'BRAt', color: '#9adf3f' },
+  { asset: 'ARGt', label: 'ARGt', color: '#ffd84a' },
 ] as const;

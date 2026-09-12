@@ -1332,3 +1332,66 @@ footer p{
 
 @media(max-width:1050px){.replay-hero{grid-template-columns:1fr}.replay-grid{grid-template-columns:1fr}.replay-side{display:grid;grid-template-columns:1fr 1fr}.replay-assets{grid-template-columns:1fr 1fr}.cash-winner{grid-column:1/-1}.replay-hero-meta{max-width:650px}}
 @media(max-width:680px){.historical-layout{padding-top:24px}.replay-hero{padding-top:10px;gap:24px}.replay-hero h1{font-size:51px}.replay-hero-meta{grid-template-columns:1fr}.replay-hero-meta>div{border-right:0;border-bottom:1px solid #38432f}.replay-hero-meta>div:last-child{border-bottom:0}.replay-timeline button{padding:12px 9px;column-gap:6px}.replay-timeline button span{font-size:8px}.replay-timeline button small{font-size:6px}.replay-decision-top{flex-direction:column;align-items:stretch}.usdc-benchmark{min-width:0}.replay-assets{grid-template-columns:1fr}.cash-winner{grid-column:auto}.macro-signal-grid{grid-template-columns:1fr}.replay-side{display:flex}.historical-badge{display:none}.replay-decision-card,.replay-proof,.replay-controls,.macro-layer{padding:18px}.replay-callout b{margin-left:0;width:100%}}
+
+/* Mocked historical replay refresh */
+.mocked-replay-layout{display:flex;flex-direction:column;gap:24px}
+.replay-hero-mock{padding-bottom:10px}
+.historical-chart-panel{border:1px solid #3d4932;border-radius:18px;background:linear-gradient(160deg,#1f2719,#151913);padding:22px;overflow:hidden}
+.replay-chart-heading{margin-bottom:10px}
+.replay-chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 18px}
+.replay-chart-legend span{display:inline-flex;align-items:center;gap:8px;font-size:10px;color:#a9b79c;padding:7px 10px;border:1px solid #36412e;border-radius:999px;background:#161b13}
+.replay-chart-legend i{width:18px;height:3px;border-radius:999px;display:inline-block}
+.replay-chart-wrap{overflow:auto;border:1px solid #2f3828;border-radius:16px;background:#131710;padding:8px}
+.replay-chart{width:100%;min-width:920px;display:block}
+.axis-label{fill:#7d8d71;font-size:11px}.axis-label.negative{fill:#c79a78}
+.asset-line-label{font-size:14px;font-weight:700;letter-spacing:.3px}
+.chart-callout-title{fill:#edf5e3;font-size:12px;font-weight:700}
+.chart-callout-copy{fill:#97a787;font-size:11px}
+.chart-callout-bike{font-size:16px}
+.month-axis-label{fill:#e4edd9;font-size:11px;font-weight:700;letter-spacing:.8px}
+.month-axis-copy{fill:#8d9d80;font-size:10px}
+.month-selector{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.month-selector button{border:1px solid #313b29;background:#171c14;color:#94a288;border-radius:12px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:6px}
+.month-selector button small{font-size:8px;letter-spacing:1.2px;color:#7e8d72}
+.month-selector button strong{font-size:16px;color:#e1ead7;font-weight:600}
+.month-selector button span{font-size:10px;line-height:1.5}
+.month-selector button.active{background:#25301e;border-color:#a7ca67;box-shadow:0 0 0 1px #a7ca67 inset}
+.month-selector button.complete{border-color:#4d5b3d}
+.replay-grid-monthly .replay-side,.replay-grid-monthly .replay-main{gap:20px}
+.month-decision-card{padding:24px}
+.month-decision-header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.month-decision-header>div:first-child>span{font-size:8px;letter-spacing:1.3px;color:#96a588}
+.month-decision-header h2{font-size:38px;letter-spacing:-1.4px;color:var(--lime);margin:8px 0 10px}
+.month-decision-header p{max-width:620px;font-size:11px;line-height:1.72;color:#a7b59b}
+.month-bike-card{min-width:220px;border-radius:14px;border:1px solid #4e5d3b;background:#1c2417;padding:18px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.month-bike-card.usdc{border-color:#2db4ff55;background:linear-gradient(180deg,#132436,#182018)}
+.month-bike-card.brat{border-color:#9adf3f66;background:linear-gradient(180deg,#1f2a14,#182018)}
+.month-bike-card.argt{border-color:#ffd84a66;background:linear-gradient(180deg,#2d2912,#1d1f16)}
+.month-bike{font-size:26px;line-height:1}
+.month-bike-card strong{font-size:25px}.month-bike-card small{font-size:9px;line-height:1.6;color:#91a184}
+.month-callout{margin-top:18px}.month-transition{margin-top:14px;font-size:10px;color:#8fa07f}
+.month-assets{grid-template-columns:repeat(3,minmax(0,1fr))}
+.month-metric-card{border:1px solid #303a29;border-radius:11px;background:#181e15;padding:17px;min-width:0}
+.month-metric-card.winner{border-color:#91b65b;background:linear-gradient(160deg,#27321f,#1b2117)}
+.month-metric-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.month-metric-head>b{font-size:7px;letter-spacing:1px;padding:5px 7px;border-radius:99px;background:var(--lime);color:#15200c}
+.month-asset-name{display:flex;align-items:center;gap:9px}.month-asset-name>div{display:flex;flex-direction:column;gap:2px}.month-asset-name strong{font-size:12px}.month-asset-name span{font-size:8px;color:#829075}
+.month-carry{font-size:34px;letter-spacing:-1px;margin:18px 0 4px;color:var(--lime)}.month-carry.negative{color:#ffb278}
+.month-breakdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;border-top:1px solid #36422e;padding-top:14px;margin-top:15px}
+.month-breakdown-grid div{display:flex;flex-direction:column;gap:5px}.month-breakdown-grid span{font-size:8px;color:#7f8f72}.month-breakdown-grid strong{font-size:13px;font-weight:550;color:#d6dfca}
+.mock-signals-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ai-pill.positive{color:var(--lime);border-color:#648144;background:#24301c}.ai-pill.negative{color:#ffc28d;border-color:#825e3d;background:#2a1f17}
+.mock-ai-summary{margin-top:14px;padding:15px 16px;border-top:1px solid #33402b;color:#9cad8f}.mock-ai-summary strong{display:block;font-size:10px;letter-spacing:1px;color:#dfe9d4;margin-bottom:6px}.mock-ai-summary p{font-size:10px;line-height:1.7}
+.month-proof .replay-proof b{font-size:12px}
+
+@media(max-width:1050px){
+  .month-assets,.mock-signals-grid,.month-selector{grid-template-columns:1fr}
+  .month-decision-header{flex-direction:column}
+  .month-bike-card{min-width:0;width:100%}
+}
+@media(max-width:680px){
+  .historical-chart-panel{padding:16px}
+  .replay-chart{min-width:820px}
+  .month-decision-header h2{font-size:31px}
+  .month-breakdown-grid{grid-template-columns:1fr}
+}
