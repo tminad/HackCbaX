@@ -3,34 +3,68 @@ import { AssetIcon, money, percent } from './components.js';
 import { historicalReplayChart, historicalReplayMonths, replayDecisionLegend, type ReplayDecisionAsset } from './historicalReplayData.js';
 
 const chartColors: Record<ReplayDecisionAsset, string> = {
-  USDC: '#2db4ff',
-  BRAt: '#9adf3f',
-  ARGt: '#ffd84a',
+  USDC: '#68b7d8',
+  BRAt: '#b5da76',
+  ARGt: '#dfc96c',
 };
 
 function assetSeries(asset: ReplayDecisionAsset) {
   return historicalReplayChart.map(point => ({ day: point.day, value: asset === 'USDC' ? point.usdc : asset === 'BRAt' ? point.brat : point.argt }));
 }
 
+function smoothPath(points: { x: number; y: number }[]) {
+  if (points.length < 2) return '';
+  let path = `M ${points[0]!.x.toFixed(1)} ${points[0]!.y.toFixed(1)}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const p0 = points[Math.max(0, i - 1)]!;
+    const p1 = points[i]!;
+    const p2 = points[i + 1]!;
+    const p3 = points[Math.min(points.length - 1, i + 2)]!;
+    const c1x = p1.x + (p2.x - p0.x) / 6;
+    const c1y = p1.y + (p2.y - p0.y) / 6;
+    const c2x = p2.x - (p3.x - p1.x) / 6;
+    const c2y = p2.y - (p3.y - p1.y) / 6;
+    path += ` C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+  }
+  return path;
+}
+
 function ReplayChart() {
-  const width = 980;
-  const height = 360;
-  const padX = 44;
-  const padY = 28;
+  const width = 1040;
+  const height = 390;
+  const padX = 52;
+  const padTop = 32;
+  const padBottom = 56;
   const innerWidth = width - padX * 2;
-  const innerHeight = height - padY * 2;
+  const innerHeight = height - padTop - padBottom;
   const allValues = historicalReplayChart.flatMap(point => [point.usdc, point.brat, point.argt]);
-  const min = Math.min(...allValues) - 0.004;
-  const max = Math.max(...allValues) + 0.004;
+  const min = Math.min(...allValues) - 0.006;
+  const max = Math.max(...allValues) + 0.006;
   const x = (day: number) => padX + day / 90 * innerWidth;
-  const y = (value: number) => padY + (max - value) / (max - min) * innerHeight;
-  const linePath = (asset: ReplayDecisionAsset) => assetSeries(asset)
-    .map((point, index) => `${index === 0 ? 'M' : 'L'} ${x(point.day).toFixed(1)} ${y(point.value).toFixed(1)}`).join(' ');
+  const y = (value: number) => padTop + (max - value) / (max - min) * innerHeight;
+
+  const pointValue = (asset: ReplayDecisionAsset, day: number) => {
+    const exact = historicalReplayChart.find(point => point.day === day);
+    if (exact) return asset === 'USDC' ? exact.usdc : asset === 'BRAt' ? exact.brat : exact.argt;
+    const afterIndex = historicalReplayChart.findIndex(point => point.day > day);
+    if (afterIndex <= 0) {
+      const point = historicalReplayChart[Math.max(0, afterIndex)] ?? historicalReplayChart[historicalReplayChart.length - 1]!;
+      return asset === 'USDC' ? point.usdc : asset === 'BRAt' ? point.brat : point.argt;
+    }
+    const before = historicalReplayChart[afterIndex - 1]!;
+    const after = historicalReplayChart[afterIndex]!;
+    const t = (day - before.day) / (after.day - before.day);
+    const a = asset === 'USDC' ? before.usdc : asset === 'BRAt' ? before.brat : before.argt;
+    const b = asset === 'USDC' ? after.usdc : asset === 'BRAt' ? after.brat : after.argt;
+    return a + (b - a) * t;
+  };
+
+  const seriesPath = (asset: ReplayDecisionAsset) => smoothPath(assetSeries(asset).map(point => ({ x: x(point.day), y: y(point.value) })));
 
   const decisionMarkers = [
-    { day: 30, asset: 'USDC' as const, title: 'Month 1 · Stay in USDC', subtitle: 'No profitable carry yet' },
-    { day: 60, asset: 'BRAt' as const, title: 'Month 2 · Swap to BRAt', subtitle: 'Brazil overtakes USDC' },
-    { day: 90, asset: 'ARGt' as const, title: 'Month 3 · Swap to ARGt', subtitle: 'Argentina becomes #1' },
+    { day: 18, asset: 'USDC' as const, title: 'Hold USDC', subtitle: 'No edge detected yet', side: 'right' as const },
+    { day: 38, asset: 'BRAt' as const, title: 'Ride BRAt', subtitle: 'Signal confirmed · +8 days', side: 'right' as const },
+    { day: 69, asset: 'ARGt' as const, title: 'Ride ARGt', subtitle: 'Signal confirmed · +9 days', side: 'right' as const },
   ];
 
   return <section className="historical-chart-panel">
@@ -50,54 +84,85 @@ function ReplayChart() {
       <svg viewBox={`0 0 ${width} ${height}`} className="replay-chart" role="img" aria-label="Three-month cumulative performance of USDC, BRAt and ARGt">
         <defs>
           <linearGradient id="chartBg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1e2519" />
-            <stop offset="100%" stopColor="#141813" />
+            <stop offset="0%" stopColor="#1d2419" />
+            <stop offset="55%" stopColor="#171c15" />
+            <stop offset="100%" stopColor="#121610" />
           </linearGradient>
+          <linearGradient id="usdcStroke" x1={padX} y1="0" x2={width - padX} y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#4e8da7" /><stop offset="55%" stopColor="#68b7d8" /><stop offset="100%" stopColor="#86c9e3" />
+          </linearGradient>
+          <linearGradient id="bratStroke" x1={padX} y1="0" x2={width - padX} y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#7f9e4f" /><stop offset="55%" stopColor="#b5da76" /><stop offset="100%" stopColor="#d1ec9b" />
+          </linearGradient>
+          <linearGradient id="argtStroke" x1={padX} y1="0" x2={width - padX} y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#a9954f" /><stop offset="55%" stopColor="#dfc96c" /><stop offset="100%" stopColor="#efe09b" />
+          </linearGradient>
+          <filter id="softLineGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+          </filter>
+          <filter id="markerGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+          </filter>
+          <clipPath id="chartClip"><rect x={padX} y={padTop} width={innerWidth} height={innerHeight} rx="8" /></clipPath>
         </defs>
         <rect x="0" y="0" width={width} height={height} rx="24" fill="url(#chartBg)" />
 
         {[0, 0.015, 0.03, 0.045, 0.06].map(level => <g key={level}>
-          <line x1={padX} x2={width - padX} y1={y(level)} y2={y(level)} stroke="#354030" strokeDasharray="5 7" strokeWidth="1" />
+          <line x1={padX} x2={width - padX} y1={y(level)} y2={y(level)} stroke="#354030" strokeDasharray="4 9" strokeWidth="1" opacity=".75" />
           <text x="14" y={y(level) + 4} className="axis-label">{percent(level, 0, true)}</text>
         </g>)}
-        {[-0.015].map(level => <g key={level}>
-          <line x1={padX} x2={width - padX} y1={y(level)} y2={y(level)} stroke="#3f3028" strokeDasharray="5 7" strokeWidth="1" />
-          <text x="12" y={y(level) + 4} className="axis-label negative">{percent(level, 0, true)}</text>
-        </g>)}
+        <line x1={padX} x2={width - padX} y1={y(-0.015)} y2={y(-0.015)} stroke="#47382d" strokeDasharray="4 9" strokeWidth="1" opacity=".55" />
+        <text x="12" y={y(-0.015) + 4} className="axis-label negative">{percent(-0.015, 0, true)}</text>
 
-        {[30, 60].map(monthEdge => <line key={monthEdge} x1={x(monthEdge)} x2={x(monthEdge)} y1={padY} y2={height - padY} stroke="#8ea667" strokeWidth="1.5" strokeDasharray="10 8" />)}
+        {[30, 60].map(monthEdge => <line key={monthEdge} x1={x(monthEdge)} x2={x(monthEdge)} y1={padTop} y2={height - padBottom + 4} stroke="#708060" strokeWidth="1" strokeDasharray="8 10" opacity=".7" />)}
 
-        {(['USDC', 'BRAt', 'ARGt'] as const).map(asset => <path key={asset} d={linePath(asset)} fill="none" stroke={chartColors[asset]} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />)}
+        <g clipPath="url(#chartClip)">
+          {(['USDC', 'BRAt', 'ARGt'] as const).map(asset => {
+            const path = seriesPath(asset);
+            const stroke = asset === 'USDC' ? 'url(#usdcStroke)' : asset === 'BRAt' ? 'url(#bratStroke)' : 'url(#argtStroke)';
+            return <g key={asset}>
+              <path d={path} fill="none" stroke={chartColors[asset]} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" opacity=".09" filter="url(#softLineGlow)" />
+              <path d={path} fill="none" stroke="#0b0e0a" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" opacity=".55" />
+              <path d={path} fill="none" stroke={stroke} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            </g>;
+          })}
+        </g>
 
-        <text x={x(8)} y={y(historicalReplayChart[2]!.usdc) - 12} fill={chartColors.USDC} className="asset-line-label">USDC</text>
-        <text x={x(31)} y={y(0.002)} fill={chartColors.BRAt} className="asset-line-label">BRAt</text>
-        <text x={x(64)} y={y(0.047)} fill={chartColors.ARGt} className="asset-line-label">ARGt</text>
+        <text x={x(7)} y={y(pointValue('USDC', 7)) - 12} fill={chartColors.USDC} className="asset-line-label">USDC</text>
+        <text x={x(43)} y={y(pointValue('BRAt', 43)) - 15} fill={chartColors.BRAt} className="asset-line-label">BRAt</text>
+        <text x={x(82)} y={y(pointValue('ARGt', 82)) - 16} fill={chartColors.ARGt} className="asset-line-label">ARGt</text>
 
         {decisionMarkers.map((marker, index) => {
-          const value = marker.asset === 'USDC' ? historicalReplayChart.find(point => point.day === marker.day)!.usdc
-            : marker.asset === 'BRAt' ? historicalReplayChart.find(point => point.day === marker.day)!.brat
-            : historicalReplayChart.find(point => point.day === marker.day)!.argt;
+          const value = pointValue(marker.asset, marker.day);
           const markerX = x(marker.day);
           const markerY = y(value);
-          const bubbleX = index === 2 ? markerX - 180 : markerX + 12;
-          const bubbleY = Math.max(18, markerY - 68);
-          return <g key={marker.day}>
-            <circle cx={markerX} cy={markerY} r="7" fill={chartColors[marker.asset]} stroke="#0f120d" strokeWidth="2" />
-            <line x1={markerX} y1={markerY} x2={bubbleX + 20} y2={bubbleY + 38} stroke={chartColors[marker.asset]} strokeWidth="2" strokeDasharray="3 5" />
-            <rect x={bubbleX} y={bubbleY} width="170" height="52" rx="14" fill="#11150f" stroke={chartColors[marker.asset]} strokeWidth="1.4" />
-            <text x={bubbleX + 14} y={bubbleY + 20} className="chart-callout-bike">🚲</text>
-            <text x={bubbleX + 36} y={bubbleY + 20} className="chart-callout-title">{marker.title}</text>
-            <text x={bubbleX + 36} y={bubbleY + 37} className="chart-callout-copy">{marker.subtitle}</text>
+          const bubbleWidth = marker.asset === 'USDC' ? 145 : 158;
+          const preferRight = markerX + bubbleWidth + 52 < width - padX;
+          const bubbleX = preferRight ? markerX + 28 : markerX - bubbleWidth - 28;
+          const badgeY = Math.max(padTop + 24, markerY - 55);
+          const bubbleY = Math.max(padTop + 5, badgeY - 22);
+          const color = chartColors[marker.asset];
+          return <g key={`${marker.asset}-${marker.day}`} className={`decision-marker marker-${index}`}>
+            <line x1={markerX} y1={markerY} x2={markerX} y2={badgeY + 17} stroke={color} strokeWidth="1.2" strokeDasharray="3 5" opacity=".72" />
+            <circle cx={markerX} cy={markerY} r="8" fill={color} opacity=".18" filter="url(#markerGlow)" />
+            <circle cx={markerX} cy={markerY} r="4.8" fill={color} stroke="#11150f" strokeWidth="2" />
+            <circle cx={markerX} cy={badgeY} r="20" fill="#11160f" stroke={color} strokeWidth="1.5" />
+            <circle cx={markerX - 7} cy={badgeY + 5} r="5" fill="none" stroke={color} strokeWidth="1.7" />
+            <circle cx={markerX + 8} cy={badgeY + 5} r="5" fill="none" stroke={color} strokeWidth="1.7" />
+            <path d={`M ${markerX - 7} ${badgeY + 5} L ${markerX - 1} ${badgeY - 5} L ${markerX + 4} ${badgeY + 5} M ${markerX - 1} ${badgeY - 5} L ${markerX + 8} ${badgeY - 5} M ${markerX + 4} ${badgeY + 5} L ${markerX + 10} ${badgeY - 2}`} fill="none" stroke={color} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x={bubbleX} y={bubbleY} width={bubbleWidth} height="46" rx="12" fill="#11150f" stroke={color} strokeWidth="1" />
+            <text x={bubbleX + 12} y={bubbleY + 18} className="chart-callout-title">{marker.title}</text>
+            <text x={bubbleX + 12} y={bubbleY + 34} className="chart-callout-copy">{marker.subtitle}</text>
           </g>;
         })}
 
         {[
-          { x: x(15), label: 'MONTH 1', copy: 'Stay in USDC' },
-          { x: x(45), label: 'MONTH 2', copy: 'Swap to BRAt' },
-          { x: x(75), label: 'MONTH 3', copy: 'Swap to ARGt' },
+          { x: x(15), label: 'MONTH 1', copy: 'Defensive phase' },
+          { x: x(45), label: 'MONTH 2', copy: 'Brazil breakout' },
+          { x: x(75), label: 'MONTH 3', copy: 'Argentina overtakes' },
         ].map(item => <g key={item.label}>
-          <text x={item.x - 26} y={height - 10} className="month-axis-label">{item.label}</text>
-          <text x={item.x - 34} y={height - 28} className="month-axis-copy">{item.copy}</text>
+          <text x={item.x - 27} y={height - 12} className="month-axis-label">{item.label}</text>
+          <text x={item.x - 36} y={height - 30} className="month-axis-copy">{item.copy}</text>
         </g>)}
       </svg>
     </div>

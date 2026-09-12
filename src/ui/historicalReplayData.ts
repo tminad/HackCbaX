@@ -44,24 +44,29 @@ export interface HistoricalReplayMonth {
 
 export const historicalReplayChart: readonly ReplayChartPoint[] = [
   { day: 0, usdc: 0, brat: 0, argt: 0 },
-  { day: 4, usdc: 0.0005, brat: -0.001, argt: -0.0015 },
+  { day: 4, usdc: 0.0005, brat: -0.0010, argt: -0.0015 },
   { day: 8, usdc: 0.0011, brat: -0.0028, argt: -0.0044 },
   { day: 12, usdc: 0.0016, brat: -0.0054, argt: -0.0072 },
   { day: 16, usdc: 0.0021, brat: -0.0074, argt: -0.0096 },
-  { day: 20, usdc: 0.0024, brat: -0.007, argt: -0.0108 },
+  { day: 20, usdc: 0.0024, brat: -0.0070, argt: -0.0108 },
   { day: 24, usdc: 0.0028, brat: -0.0051, argt: -0.0116 },
   { day: 30, usdc: 0.0032, brat: -0.0018, argt: -0.0102 },
 
-  { day: 36, usdc: 0.0038, brat: 0.0038, argt: -0.0068 },
-  { day: 42, usdc: 0.0043, brat: 0.0104, argt: -0.0021 },
+  // A few days into month 2 the Brazil signal becomes strong enough to act.
+  { day: 34, usdc: 0.00355, brat: 0.0012, argt: -0.0080 },
+  { day: 38, usdc: 0.0039, brat: 0.0065, argt: -0.0055 },
+  { day: 42, usdc: 0.0043, brat: 0.0104, argt: -0.0020 },
   { day: 48, usdc: 0.0049, brat: 0.0178, argt: 0.0034 },
-  { day: 54, usdc: 0.0054, brat: 0.0242, argt: 0.0079 },
-  { day: 60, usdc: 0.0059, brat: 0.0311, argt: 0.0117 },
+  { day: 54, usdc: 0.0054, brat: 0.0242, argt: 0.0105 },
+  { day: 60, usdc: 0.0059, brat: 0.0311, argt: 0.0215 },
 
-  { day: 66, usdc: 0.0063, brat: 0.0386, argt: 0.0187 },
-  { day: 72, usdc: 0.0068, brat: 0.0425, argt: 0.0281 },
-  { day: 78, usdc: 0.0072, brat: 0.0449, argt: 0.0388 },
-  { day: 84, usdc: 0.0078, brat: 0.0431, argt: 0.0504 },
+  // Month 3 begins with BRAt still ahead. ARGt crosses a few days later.
+  { day: 63, usdc: 0.0061, brat: 0.0345, argt: 0.0278 },
+  { day: 66, usdc: 0.0063, brat: 0.0368, argt: 0.0342 },
+  { day: 69, usdc: 0.0065, brat: 0.0382, argt: 0.0405 },
+  { day: 72, usdc: 0.0068, brat: 0.0395, argt: 0.0450 },
+  { day: 78, usdc: 0.0072, brat: 0.0410, argt: 0.0505 },
+  { day: 84, usdc: 0.0078, brat: 0.0415, argt: 0.0550 },
   { day: 90, usdc: 0.0082, brat: 0.0416, argt: 0.0587 },
 ];
 
@@ -141,7 +146,7 @@ export const historicalReplayMonths: readonly HistoricalReplayMonth[] = [
 ] as const;
 
 export const replayDecisionLegend: readonly { asset: ReplayDecisionAsset; label: string; color: string }[] = [
-  { asset: 'USDC', label: 'USDC', color: '#2db4ff' },
-  { asset: 'BRAt', label: 'BRAt', color: '#9adf3f' },
-  { asset: 'ARGt', label: 'ARGt', color: '#ffd84a' },
+  { asset: 'USDC', label: 'USDC', color: '#68b7d8' },
+  { asset: 'BRAt', label: 'BRAt', color: '#b5da76' },
+  { asset: 'ARGt', label: 'ARGt', color: '#dfc96c' },
 ] as const;
