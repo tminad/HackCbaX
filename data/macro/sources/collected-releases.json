@@ -1,0 +1,279 @@
+{
+  "retrievedAt": "2026-09-12T14:55:19.175Z",
+  "releases": [
+    {
+      "currency": "ARS",
+      "event": {
+        "id": "bcra-ipom-2026-08-06",
+        "publishedAt": "2026-08-07T03:00:00.000Z",
+        "source": "https://www.bcra.gob.ar/noticias/conferencia-prensa-ipom-segundo-trimestre-2026/",
+        "title": "BCRA second-quarter monetary-policy presentation",
+        "summary": "BCRA reaffirmed its fiscal and monetary inflation anchor. It reported USD 13,337 million in FX purchases through July 31. These are reported past purchases, not an FX forecast.",
+        "publicationNote": "Source dated August 6; exact clock unavailable. Conservatively usable after end of Argentina local day."
+      }
+    },
+    {
+      "currency": "ARS",
+      "event": {
+        "id": "bcra-rem-2026-08",
+        "publishedAt": "2026-09-05T03:00:00.000Z",
+        "source": "https://www.bcra.gob.ar/archivos/Pdfs/PublicacionesEstadisticas/informes/tablas-relevamiento-expectativas-mercado-ago-2026.xlsx",
+        "title": "BCRA REM August 2026, released September 4",
+        "summary": "47 participants. Median monthly average wholesale USD forecasts: September 1530.397708358 ARS/USD, October 1565. September expected CPI 1.8% monthly. Expected September TAMAR 24.11% nominal annual is a bank deposit rate, not a policy rate.",
+        "publicationNote": "Release date verified on BCRA publication page. XLSX first worksheet: FX B52/D52 and B53/D53; CPI D8; TAMAR D39. Exact clock unavailable: next Argentina local day used."
+      },
+      "forecasts": [
+        {
+          "value": 1530.397708358,
+          "publishedAt": "2026-09-05T03:00:00.000Z",
+          "sourceEventId": "bcra-rem-2026-08",
+          "periodStart": "2026-09-01T00:00:00.000Z",
+          "periodEnd": "2026-09-30T23:59:59.999Z",
+          "horizonKind": "MONTHLY_AVERAGE"
+        },
+        {
+          "value": 1565,
+          "publishedAt": "2026-09-05T03:00:00.000Z",
+          "sourceEventId": "bcra-rem-2026-08",
+          "periodStart": "2026-10-01T00:00:00.000Z",
+          "periodEnd": "2026-10-31T23:59:59.999Z",
+          "horizonKind": "MONTHLY_AVERAGE"
+        }
+      ],
+      "inflation": {
+        "expectedMonthly": {
+          "value": 0.018,
+          "publishedAt": "2026-09-05T03:00:00.000Z",
+          "sourceEventId": "bcra-rem-2026-08"
+        }
+      }
+    },
+    {
+      "currency": "ARS",
+      "event": {
+        "id": "bcra-monetary-2026-08",
+        "publishedAt": "2026-09-08T03:00:00.000Z",
+        "source": "https://www.bcra.gob.ar/publicaciones/informe-monetario-mensual-agosto-de-2026/",
+        "title": "BCRA August monetary report",
+        "summary": "Private transactional M2 was stable in real seasonally adjusted terms. Monetary base rose 1.5% on that basis; private peso lending fell 1.0%.",
+        "publicationNote": "Source dated September 7; next local day used because exact publication clock is unavailable."
+      }
+    },
+    {
+      "currency": "ARS",
+      "event": {
+        "id": "indec-ipc-2026-08",
+        "publishedAt": "2026-09-11T03:00:00.000Z",
+        "source": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_26A1BE2DC4CD.pdf",
+        "title": "INDEC August 2026 CPI",
+        "summary": "National CPI rose 1.7% monthly and 33.5% year-on-year in August 2026.",
+        "publicationNote": "September 10 release date verified at INDEC Nivel4/Tema/3/5/31; PDF page 3. Conservatively next local day; absent from September 6 pack."
+      },
+      "inflation": {
+        "latestMonthly": {
+          "value": 0.017,
+          "publishedAt": "2026-09-11T03:00:00.000Z",
+          "sourceEventId": "indec-ipc-2026-08"
+        },
+        "latestAnnual": {
+          "value": 0.335,
+          "publishedAt": "2026-09-11T03:00:00.000Z",
+          "sourceEventId": "indec-ipc-2026-08"
+        }
+      }
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "bcb-focus-2026-08-28",
+        "publishedAt": "2026-09-01T03:00:00.000Z",
+        "source": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?%24filter=%28Indicador+eq+%27C%C3%A2mbio%27+or+Indicador+eq+%27IPCA%27+or+Indicador+eq+%27Selic%27%29+and+Data+eq+%272026-08-28%27+and+baseCalculo+eq+0&%24format=json&%24top=1000",
+        "title": "BCB Focus, survey close 2026-08-28",
+        "summary": "Aggregate 30-day respondent medians for monthly average PTAX: 10/2026: 5.2 BRL/USD; 09/2026: 5.18 BRL/USD. Survey expectations, not central-bank promises.",
+        "publicationNote": "Survey date is NOT publication date. Released August 31 per contemporaneous publication coverage; conservatively usable after end of Brasilia local release day. BCB schedule: https://www.bcb.gov.br/controleinflacao/relatoriofocus Live Olinda fetch was unavailable during collection; values came from the reviewed local BCB snapshot in data/macro/sources/brazil-focus-reviewed.json."
+      },
+      "forecasts": [
+        {
+          "value": 5.2,
+          "publishedAt": "2026-09-01T03:00:00.000Z",
+          "sourceEventId": "bcb-focus-2026-08-28",
+          "horizonKind": "MONTHLY_AVERAGE",
+          "periodStart": "2026-10-01T00:00:00.000Z",
+          "periodEnd": "2026-10-31T23:59:59.999Z"
+        },
+        {
+          "value": 5.18,
+          "publishedAt": "2026-09-01T03:00:00.000Z",
+          "sourceEventId": "bcb-focus-2026-08-28",
+          "horizonKind": "MONTHLY_AVERAGE",
+          "periodStart": "2026-09-01T00:00:00.000Z",
+          "periodEnd": "2026-09-30T23:59:59.999Z"
+        }
+      ]
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "bcb-focus-2026-09-04",
+        "publishedAt": "2026-09-09T03:00:00.000Z",
+        "source": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?%24filter=%28Indicador+eq+%27C%C3%A2mbio%27+or+Indicador+eq+%27IPCA%27+or+Indicador+eq+%27Selic%27%29+and+Data+eq+%272026-09-04%27+and+baseCalculo+eq+0&%24format=json&%24top=1000",
+        "title": "BCB Focus, survey close 2026-09-04",
+        "summary": "Aggregate 30-day respondent medians for monthly average PTAX: 10/2026: 5.2 BRL/USD; 09/2026: 5.18 BRL/USD. Survey expectations, not central-bank promises.",
+        "publicationNote": "Released September 8 after the September 7 holiday; date corroborated by https://economia.uol.com.br/noticias/redacao/2026/09/08/relatorio-focus-8-de-setembro.ghtm . Exact clock not reconstructed; conservatively usable after end of local release day. Live Olinda fetch was unavailable during collection; values came from the reviewed local BCB snapshot in data/macro/sources/brazil-focus-reviewed.json."
+      },
+      "forecasts": [
+        {
+          "value": 5.2,
+          "publishedAt": "2026-09-09T03:00:00.000Z",
+          "sourceEventId": "bcb-focus-2026-09-04",
+          "horizonKind": "MONTHLY_AVERAGE",
+          "periodStart": "2026-10-01T00:00:00.000Z",
+          "periodEnd": "2026-10-31T23:59:59.999Z"
+        },
+        {
+          "value": 5.18,
+          "publishedAt": "2026-09-09T03:00:00.000Z",
+          "sourceEventId": "bcb-focus-2026-09-04",
+          "horizonKind": "MONTHLY_AVERAGE",
+          "periodStart": "2026-09-01T00:00:00.000Z",
+          "periodEnd": "2026-09-30T23:59:59.999Z"
+        }
+      ]
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "bcb-selic-2026-09-04",
+        "publishedAt": "2026-09-05T03:00:00.000Z",
+        "source": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=04/09/2026&dataFinal=04/09/2026",
+        "title": "BCB Selic target rate",
+        "summary": "Selic target: 14% annual.",
+        "publicationNote": "Daily SGS observation conservatively available after end of local day; exact release clock unavailable."
+      },
+      "rates": {
+        "policyRate": {
+          "value": 0.14,
+          "publishedAt": "2026-09-05T03:00:00.000Z",
+          "sourceEventId": "bcb-selic-2026-09-04",
+          "observedAt": "2026-09-04T03:00:00Z"
+        }
+      }
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "bcb-selic-2026-09-11",
+        "publishedAt": "2026-09-12T03:00:00.000Z",
+        "source": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=11/09/2026&dataFinal=11/09/2026",
+        "title": "BCB Selic target rate",
+        "summary": "Selic target: 14% annual.",
+        "publicationNote": "Daily SGS observation conservatively available after end of local day; exact release clock unavailable."
+      },
+      "rates": {
+        "policyRate": {
+          "value": 0.14,
+          "publishedAt": "2026-09-12T03:00:00.000Z",
+          "sourceEventId": "bcb-selic-2026-09-11",
+          "observedAt": "2026-09-11T03:00:00Z"
+        }
+      }
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "ibge-48015",
+        "publishedAt": "2026-09-11T12:00:00.000Z",
+        "source": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/48015-ipca-fica-em-0-32-em-agosto.html",
+        "title": "IPCA fica em -0,32% em agosto",
+        "summary": "Official IBGE release: monthly IPCA -0,32%. Twelve-month inflation 4,22%.",
+        "publicationNote": "Publication timestamp from IBGE news API; Brasilia UTC-3."
+      },
+      "inflation": {
+        "latestMonthly": {
+          "value": -0.0032,
+          "publishedAt": "2026-09-11T12:00:00.000Z",
+          "sourceEventId": "ibge-48015"
+        },
+        "latestAnnual": {
+          "value": 0.042199999999999994,
+          "publishedAt": "2026-09-11T12:00:00.000Z",
+          "sourceEventId": "ibge-48015"
+        }
+      }
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "ibge-47847",
+        "publishedAt": "2026-08-26T12:00:00.000Z",
+        "source": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/47847-ipca-15-e-de-0-40-em-agosto.html",
+        "title": "IPCA-15 é de -0,40% em agosto",
+        "summary": "Official IBGE release: monthly IPCA-15 preview -0,40%.",
+        "publicationNote": "Publication timestamp from IBGE news API; Brasilia UTC-3."
+      }
+    },
+    {
+      "currency": "BRL",
+      "event": {
+        "id": "ibge-47739",
+        "publishedAt": "2026-08-11T12:00:00.000Z",
+        "source": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/47739-ipca-fica-em-0-07-em-julho.html",
+        "title": "IPCA fica em 0,07% em julho",
+        "summary": "Official IBGE release: monthly IPCA 0,07%. Twelve-month inflation 4,44%.",
+        "publicationNote": "Publication timestamp from IBGE news API; Brasilia UTC-3."
+      },
+      "inflation": {
+        "latestMonthly": {
+          "value": 0.0007000000000000001,
+          "publishedAt": "2026-08-11T12:00:00.000Z",
+          "sourceEventId": "ibge-47739"
+        },
+        "latestAnnual": {
+          "value": 0.0444,
+          "publishedAt": "2026-08-11T12:00:00.000Z",
+          "sourceEventId": "ibge-47739"
+        }
+      }
+    }
+  ],
+  "verified": [
+    {
+      "id": "bcra-ipom-2026-08-06",
+      "url": "https://www.bcra.gob.ar/noticias/conferencia-prensa-ipom-segundo-trimestre-2026/",
+      "status": "LIVE_OK",
+      "sha256": "3a88c85ca224f19e5c8483a6745a6d2ef049db1dbe982f6623e5c64ac5b8c742",
+      "bytes": 90746
+    },
+    {
+      "id": "bcra-rem-2026-08",
+      "url": "https://www.bcra.gob.ar/archivos/Pdfs/PublicacionesEstadisticas/informes/tablas-relevamiento-expectativas-mercado-ago-2026.xlsx",
+      "status": "LIVE_OK",
+      "sha256": "125e93f9188c2c1d7ccc26cd971a77b862c78fdba1777008091cc6a7fe7c6671",
+      "bytes": 90896
+    },
+    {
+      "id": "bcra-monetary-2026-08",
+      "url": "https://www.bcra.gob.ar/publicaciones/informe-monetario-mensual-agosto-de-2026/",
+      "status": "LIVE_OK",
+      "sha256": "102dadbdbcf8287b771e5ecbf694ef1b986776675fb4d4054ae07a44b459fe2e",
+      "bytes": 63930
+    },
+    {
+      "id": "indec-ipc-2026-08",
+      "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_26A1BE2DC4CD.pdf",
+      "status": "LIVE_OK",
+      "sha256": "bc7b1be9c9dfc566633457678e53f69f2071ba7d30ae7a631e4723b41e8df7eb",
+      "bytes": 3085252
+    }
+  ],
+  "ibgeEndpoint": "https://servicodados.ibge.gov.br/api/v3/noticias/?busca=IPCA&qtd=100",
+  "notes": [
+    "Economic values are primary-source data. Focus publication calendar is corroborated by contemporaneous secondary coverage; that coverage supplies no forecast numbers.",
+    "Date-only releases use a conservative next-local-day availability bound in publishedAt, explicitly identified by publicationNote.",
+    "Reviewed Argentina extracts are not an automatic future PDF parser. Future releases require reviewed ingestion.",
+    "BCB Focus uses the live Olinda API when available; on HTTP/API failure it falls back to a reviewed local BCB snapshot for the two historical survey dates used by this replay.",
+    "IBGE uses the live API when available and a reviewed local official snapshot if unavailable. Selic observations are optional and omitted rather than fabricated when SGS is unavailable.",
+    "Failure to re-download a reviewed primary Argentina source does not abort the replay; the local reviewed extract is preserved and provenance marks the fallback.",
+    "Curated finite macro corpus, not an exhaustive news archive. Model may use only this corpus; pretraining knowledge leakage cannot be proven absent."
+  ]
+}

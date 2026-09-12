@@ -1,0 +1,48 @@
+{
+  "inputHash": "1202aa3392d52366b58b7645bf264f068859f73204debba9b32efccc05dda031",
+  "model": "gemini-3.6-flash",
+  "asOf": "2026-09-12T10:00:00.000Z",
+  "generatedAt": "2026-09-12T15:00:43.361Z",
+  "modelVersion": "gemini-3.6-flash",
+  "promptVersion": "macro-v1",
+  "signal": {
+    "currency": "BRL",
+    "macroScore": 0.45,
+    "confidence": 0.85,
+    "impact": "positive",
+    "eventRisk": "low",
+    "summary": "Brazilian Real (BRL) benefits from strong macro fundamentals in the short term. The central bank maintains a high policy Selic rate of 14.0% per annum, while August IPCA data registered deflation of -0.32% (bringing 12-month inflation down to 4.22%). This combination boosts real yields substantially, offering robust carry support against the USD. However, BCB Focus survey expectations signal potential mild exchange rate depreciation toward 5.20 BRL/USD by October 2026 compared to the current spot level of 5.1108.",
+    "factors": [
+      {
+        "sourceEventId": "bcb-selic-2026-09-11",
+        "direction": "positive",
+        "reason": "The Selic target rate stands at 14.0% per annum, maintaining a significant interest rate differential that supports carry demand for BRL."
+      },
+      {
+        "sourceEventId": "ibge-48015",
+        "direction": "positive",
+        "reason": "August IPCA inflation dropped by -0.32% monthly and 12-month inflation slowed to 4.22%, widening Brazil's real interest rate margin."
+      },
+      {
+        "sourceEventId": "bcb-focus-2026-09-04",
+        "direction": "negative",
+        "reason": "Market participants in the Focus survey expect monthly average PTAX to weaken slightly to 5.18 in September and 5.20 BRL/USD in October 2026 relative to current spot levels."
+      },
+      {
+        "sourceEventId": "fx-BRL-2026-09-11T00:00:00.000Z",
+        "direction": "positive",
+        "reason": "Spot FX observed at 5.1108 BRL/USD reflects a 7-day BRL appreciation of approximately 0.72%."
+      }
+    ]
+  },
+  "sourceEventIds": [
+    "bcb-focus-2026-08-28",
+    "bcb-focus-2026-09-04",
+    "bcb-selic-2026-09-04",
+    "bcb-selic-2026-09-11",
+    "fx-BRL-2026-09-11T00:00:00.000Z",
+    "ibge-47739",
+    "ibge-47847",
+    "ibge-48015"
+  ]
+}

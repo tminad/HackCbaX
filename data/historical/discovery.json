@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-09-12T13:39:44.002Z",
+  "end": 1789214400000,
+  "infrastructure": {
+    "chainId": 42161,
+    "issuerSource": "https://stablecoins.twin.finance/",
+    "ARGt": {
+      "token": "0x59863989d080B22476DB95656d0C3CC18be92214",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "pool": "0x356D349dA9ADd7Efb56a35fAB939A2c6D852f853",
+      "merklOpportunity": "11859569989119475260"
+    },
+    "BRAt": {
+      "token": "0xC4ed6Aba5373D78E160F4df39e011F078Be54df8",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "pool": "0xEef48Df5F1c509cD9730774b4e8A4464626ef8D5",
+      "merklOpportunity": "11638794514051721299"
+    },
+    "intermediateToken": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+  },
+  "infrastructureStart": 1787598047000,
+  "tokens": {
+    "ARGt": {
+      "address": "0x59863989d080B22476DB95656d0C3CC18be92214",
+      "creationTimestamp": 1777495496000,
+      "creationTransaction": "0x775e1df97d2d35e4dbcb95835d7cd6cfab149776df38707de0a55bcdfc746797",
+      "creationBlock": 457693526,
+      "addressUrl": "https://arbitrum.blockscout.com/api/v2/addresses/0x59863989d080B22476DB95656d0C3CC18be92214",
+      "transactionUrl": "https://arbitrum.blockscout.com/api/v2/transactions/0x775e1df97d2d35e4dbcb95835d7cd6cfab149776df38707de0a55bcdfc746797",
+      "currentEthUsd": 2540.26
+    },
+    "BRAt": {
+      "address": "0xC4ed6Aba5373D78E160F4df39e011F078Be54df8",
+      "creationTimestamp": 1777496027000,
+      "creationTransaction": "0x5b65b241e2fa19e82d23b6b09010212f68e723de084052790ede45222f9f3cef",
+      "creationBlock": 457695644,
+      "addressUrl": "https://arbitrum.blockscout.com/api/v2/addresses/0xC4ed6Aba5373D78E160F4df39e011F078Be54df8",
+      "transactionUrl": "https://arbitrum.blockscout.com/api/v2/transactions/0x5b65b241e2fa19e82d23b6b09010212f68e723de084052790ede45222f9f3cef",
+      "currentEthUsd": 2540.26
+    }
+  },
+  "vaults": {
+    "v1": [],
+    "v2": [
+      {
+        "address": "0x10c49bf632663f9599B5caCEbb2cbe13e7a50970",
+        "name": "",
+        "symbol": "",
+        "asset": {
+          "address": "0x59863989d080B22476DB95656d0C3CC18be92214",
+          "symbol": "ARGt",
+          "decimals": 18
+        },
+        "creationTimestamp": 1779736838,
+        "creationBlockNumber": 466618635,
+        "totalAssets": "4890333925500000008940333177",
+        "totalAssetsUsd": null,
+        "liquidity": "4890333925500000008940333177",
+        "liquidityUsd": null,
+        "apy": 0,
+        "netApy": 0,
+        "netApyExcludingRewards": 0,
+        "performanceFee": 0,
+        "managementFee": 0,
+        "listed": false
+      },
+      {
+        "address": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+        "name": "BRAt Prime",
+        "symbol": "sBRAt",
+        "asset": {
+          "address": "0xC4ed6Aba5373D78E160F4df39e011F078Be54df8",
+          "symbol": "BRAt",
+          "decimals": 18
+        },
+        "creationTimestamp": 1785786366,
+        "creationBlockNumber": 490774702,
+        "totalAssets": "191192983134941000240684",
+        "totalAssetsUsd": null,
+        "liquidity": "162236389651163929792879",
+        "liquidityUsd": null,
+        "apy": 0.026130793418075223,
+        "netApy": 0.12001563430815833,
+        "netApyExcludingRewards": 0.026130793418075223,
+        "performanceFee": 0,
+        "managementFee": 0,
+        "listed": false
+      },
+      {
+        "address": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+        "name": "ARGt Prime",
+        "symbol": "sARGt",
+        "asset": {
+          "address": "0x59863989d080B22476DB95656d0C3CC18be92214",
+          "symbol": "ARGt",
+          "decimals": 18
+        },
+        "creationTimestamp": 1781636038,
+        "creationBlockNumber": 474184153,
+        "totalAssets": "7689893839727965931864236014",
+        "totalAssetsUsd": null,
+        "liquidity": "7684815199378544390091327181",
+        "liquidityUsd": null,
+        "apy": 0.0001471422801971787,
+        "netApy": 0.17000015565441812,
+        "netApyExcludingRewards": 0.0001471422801971787,
+        "performanceFee": 0,
+        "managementFee": 0,
+        "listed": false
+      }
+    ]
+  },
+  "pools": {
+    "ARGt": {
+      "address": "0x356D349dA9ADd7Efb56a35fAB939A2c6D852f853",
+      "id": "factory-twocrypto-131",
+      "name": "ARS/USDT0",
+      "creationTimestamp": 1787597733000,
+      "creationBlock": 497983104,
+      "coins": [
+        {
+          "address": "0x59863989d080B22476DB95656d0C3CC18be92214",
+          "usdPrice": 0.0006288404512416556,
+          "decimals": "18",
+          "isBasePoolLpToken": false,
+          "symbol": "ARGt",
+          "name": "Argentine Peso token",
+          "poolBalance": "23977347508438162312126983"
+        },
+        {
+          "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+          "usdPrice": 1,
+          "decimals": "6",
+          "isBasePoolLpToken": false,
+          "symbol": "USD₮0",
+          "name": "USD₮0",
+          "poolBalance": "15108731614"
+        }
+      ],
+      "priceOracle": 1590.22848804571,
+      "tvlUsd": 30186.65764078424
+    },
+    "BRAt": {
+      "address": "0xEef48Df5F1c509cD9730774b4e8A4464626ef8D5",
+      "id": "factory-twocrypto-132",
+      "name": "BRL/USDT0",
+      "creationTimestamp": 1787598047000,
+      "creationBlock": 497984356,
+      "coins": [
+        {
+          "address": "0xC4ed6Aba5373D78E160F4df39e011F078Be54df8",
+          "usdPrice": 0.19000570017100513,
+          "decimals": "18",
+          "isBasePoolLpToken": false,
+          "symbol": "BRAt",
+          "name": "Brazilian Real token",
+          "poolBalance": "78001000000000000000000"
+        },
+        {
+          "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+          "usdPrice": 1,
+          "decimals": "6",
+          "isBasePoolLpToken": false,
+          "symbol": "USD₮0",
+          "name": "USD₮0",
+          "poolBalance": "14820634619"
+        }
+      ],
+      "priceOracle": 5.263,
+      "tvlUsd": 29641.26923803857
+    }
+  },
+  "curveHistory": {
+    "ARGt": {
+      "ohlcUrl": "https://prices.curve.finance/v1/ohlc/arbitrum/0x356D349dA9ADd7Efb56a35fAB939A2c6D852f853?main_token=0x59863989d080B22476DB95656d0C3CC18be92214&reference_token=0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9&agg_units=day&start=1787597733&end=1789214400",
+      "liquidityUrl": "https://prices.curve.finance/v1/liquidity/arbitrum/0x356D349dA9ADd7Efb56a35fAB939A2c6D852f853?per_page=100&include_state=true",
+      "liquidityCount": 0,
+      "prices": [
+        {
+          "timestamp": 1787702400000,
+          "availableAt": 1787788800000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1787788800000,
+          "availableAt": 1787875200000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1787875200000,
+          "availableAt": 1787961600000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1787961600000,
+          "availableAt": 1788048000000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788048000000,
+          "availableAt": 1788134400000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788134400000,
+          "availableAt": 1788220800000,
+          "value": 0.0006269838259959321,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788220800000,
+          "availableAt": 1788307200000,
+          "value": 0.0006268278199463,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788307200000,
+          "availableAt": 1788393600000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788393600000,
+          "availableAt": 1788480000000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788480000000,
+          "availableAt": 1788566400000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788566400000,
+          "availableAt": 1788652800000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788652800000,
+          "availableAt": 1788739200000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788739200000,
+          "availableAt": 1788825600000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788825600000,
+          "availableAt": 1788912000000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788912000000,
+          "availableAt": 1788998400000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1788998400000,
+          "availableAt": 1789084800000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        },
+        {
+          "timestamp": 1789084800000,
+          "availableAt": 1789171200000,
+          "value": 0.0006307193826142713,
+          "source": "curve:ARGt:ohlc"
+        }
+      ]
+    },
+    "BRAt": {
+      "ohlcUrl": "https://prices.curve.finance/v1/ohlc/arbitrum/0xEef48Df5F1c509cD9730774b4e8A4464626ef8D5?main_token=0xC4ed6Aba5373D78E160F4df39e011F078Be54df8&reference_token=0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9&agg_units=day&start=1787598047&end=1789214400",
+      "liquidityUrl": "https://prices.curve.finance/v1/liquidity/arbitrum/0xEef48Df5F1c509cD9730774b4e8A4464626ef8D5?per_page=100&include_state=true",
+      "liquidityCount": 0,
+      "prices": []
+    }
+  },
+  "calibration": {
+    "timestamp": 1789220400318,
+    "block": "0x1e10b3e4",
+    "rpc": "https://arb1.arbitrum.io/rpc",
+    "fees": [
+      0.003,
+      0.003
+    ],
+    "quotes": [
+      {
+        "asset": "ARGt",
+        "target": "BRAt",
+        "amount": 1,
+        "input": "1590228488000000000000",
+        "intermediate": "996990",
+        "output": "5231384902404917563"
+      },
+      {
+        "asset": "ARGt",
+        "target": "BRAt",
+        "amount": 100,
+        "input": "159022848804000000000000",
+        "intermediate": "99639500",
+        "output": "522510118631051616121"
+      },
+      {
+        "asset": "ARGt",
+        "target": "BRAt",
+        "amount": 1000,
+        "input": "1590228488045000000000000",
+        "intermediate": "991006044",
+        "output": "5168483936493930030292"
+      },
+      {
+        "asset": "BRAt",
+        "target": "ARGt",
+        "amount": 1,
+        "input": "5263000000000000000",
+        "intermediate": "996994",
+        "output": "1580690119905215019483"
+      },
+      {
+        "asset": "BRAt",
+        "target": "ARGt",
+        "amount": 100,
+        "input": "526299999000000000000",
+        "intermediate": "99638879",
+        "output": "157879251356004033457664"
+      },
+      {
+        "asset": "BRAt",
+        "target": "ARGt",
+        "amount": 1000,
+        "input": "5263000000000000000000",
+        "intermediate": "990899064",
+        "output": "1561680232282757382588485"
+      }
+    ],
+    "gasPriceWei": 20000000,
+    "ethUsd": 2540.26,
+    "gasUnitsAssumption": 1000000,
+    "stressSlippageMultiplier": 2,
+    "stressGasMultiplier": 3
+  },
+  "sources": {
+    "merkl:5309699944985140221:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/5309699944985140221/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:5309699944985140221:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/5309699944985140221/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:362127878143202754:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/362127878143202754/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:362127878143202754:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/362127878143202754/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:13194172058815766383:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/13194172058815766383/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:13194172058815766383:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/13194172058815766383/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:2747766314087877568:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/2747766314087877568/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:2747766314087877568:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/2747766314087877568/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "fx:ARGt": {
+      "url": "https://api.argentinadatos.com/v1/cotizaciones/dolares/oficial",
+      "kind": "official fiat proxy, not token market price",
+      "availableAt": "next UTC day"
+    },
+    "morpho:ARGt:avgApy": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "chainId": 42161,
+      "field": "avgApy",
+      "interval": "HOUR",
+      "lookbackHours": 1,
+      "startTimestamp": 1781636038,
+      "endTimestamp": 1789214400
+    },
+    "morpho:ARGt:avgNetApy": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "chainId": 42161,
+      "field": "avgNetApy",
+      "interval": "HOUR",
+      "lookbackHours": 1,
+      "startTimestamp": 1781636038,
+      "endTimestamp": 1789214400
+    },
+    "morpho:ARGt:totalAssets": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "chainId": 42161,
+      "field": "totalAssets",
+      "interval": "HOUR",
+      "startTimestamp": 1781636038,
+      "endTimestamp": 1789214400
+    },
+    "morpho:ARGt:idleAssets": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "chainId": 42161,
+      "field": "idleAssets",
+      "interval": "HOUR",
+      "startTimestamp": 1781636038,
+      "endTimestamp": 1789214400
+    },
+    "morpho:ARGt:totalAssetsUsd": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x9Dd3F844747AB78d616BF76DB92756E17A064aDD",
+      "chainId": 42161,
+      "field": "totalAssetsUsd",
+      "interval": "HOUR",
+      "startTimestamp": 1781636038,
+      "endTimestamp": 1789214400
+    },
+    "curve:ARGt:ohlc": {
+      "url": "https://prices.curve.finance/v1/ohlc/arbitrum/0x356D349dA9ADd7Efb56a35fAB939A2c6D852f853?main_token=0x59863989d080B22476DB95656d0C3CC18be92214&reference_token=0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9&agg_units=day&start=1787597733&end=1789214400",
+      "rawUnit": "local token per USDt0; inverted to USDt0 per local token",
+      "availability": "daily close available next day"
+    },
+    "merkl:10597039454985083337:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/10597039454985083337/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:10597039454985083337:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/10597039454985083337/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:9856937673004462513:apr": {
+      "url": "https://api.merkl.xyz/v4/campaigns/9856937673004462513/metrics",
+      "rateType": "APR; source percentage points normalized to decimals",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "merkl:9856937673004462513:tvl": {
+      "url": "https://api.merkl.xyz/v4/campaigns/9856937673004462513/metrics",
+      "availability": "daily bucket + 24h; projected reward rate, not realized payout"
+    },
+    "fx:BRAt": {
+      "url": "https://api.frankfurter.dev/v1/2026-04-01..2026-09-11?base=USD&symbols=BRL",
+      "kind": "official fiat proxy, not token market price",
+      "availableAt": "next UTC day"
+    },
+    "morpho:BRAt:avgApy": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "chainId": 42161,
+      "field": "avgApy",
+      "interval": "HOUR",
+      "lookbackHours": 1,
+      "startTimestamp": 1785786366,
+      "endTimestamp": 1789214400
+    },
+    "morpho:BRAt:avgNetApy": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "chainId": 42161,
+      "field": "avgNetApy",
+      "interval": "HOUR",
+      "lookbackHours": 1,
+      "startTimestamp": 1785786366,
+      "endTimestamp": 1789214400
+    },
+    "morpho:BRAt:totalAssets": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "chainId": 42161,
+      "field": "totalAssets",
+      "interval": "HOUR",
+      "startTimestamp": 1785786366,
+      "endTimestamp": 1789214400
+    },
+    "morpho:BRAt:idleAssets": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "chainId": 42161,
+      "field": "idleAssets",
+      "interval": "HOUR",
+      "startTimestamp": 1785786366,
+      "endTimestamp": 1789214400
+    },
+    "morpho:BRAt:totalAssetsUsd": {
+      "url": "https://api.morpho.org/graphql",
+      "vault": "0x207396cBE2F6f50670EaA69584c9f723924C7Fe9",
+      "chainId": 42161,
+      "field": "totalAssetsUsd",
+      "interval": "HOUR",
+      "startTimestamp": 1785786366,
+      "endTimestamp": 1789214400
+    }
+  },
+  "registryUrl": "https://api.curve.finance/v1/getPools/all/arbitrum",
+  "directArgtBratPools": [],
+  "failures": []
+}

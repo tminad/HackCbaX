@@ -1,0 +1,94 @@
+{
+  "currency": "BRL",
+  "asOf": "2026-09-06T00:00:00.000Z",
+  "events": [
+    {
+      "id": "bcb-focus-2026-08-28",
+      "publishedAt": "2026-09-01T03:00:00.000Z",
+      "source": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?%24filter=%28Indicador+eq+%27C%C3%A2mbio%27+or+Indicador+eq+%27IPCA%27+or+Indicador+eq+%27Selic%27%29+and+Data+eq+%272026-08-28%27+and+baseCalculo+eq+0&%24format=json&%24top=1000",
+      "title": "BCB Focus, survey close 2026-08-28",
+      "summary": "Aggregate 30-day respondent medians for monthly average PTAX: 10/2026: 5.2 BRL/USD; 09/2026: 5.18 BRL/USD. Survey expectations, not central-bank promises.",
+      "publicationNote": "Survey date is NOT publication date. Released August 31 per contemporaneous publication coverage; conservatively usable after end of Brasilia local release day. BCB schedule: https://www.bcb.gov.br/controleinflacao/relatoriofocus Live Olinda fetch was unavailable during collection; values came from the reviewed local BCB snapshot in data/macro/sources/brazil-focus-reviewed.json."
+    },
+    {
+      "id": "bcb-selic-2026-09-04",
+      "publishedAt": "2026-09-05T03:00:00.000Z",
+      "source": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=04/09/2026&dataFinal=04/09/2026",
+      "title": "BCB Selic target rate",
+      "summary": "Selic target: 14% annual.",
+      "publicationNote": "Daily SGS observation conservatively available after end of local day; exact release clock unavailable."
+    },
+    {
+      "id": "fx-BRL-2026-09-04T00:00:00.000Z",
+      "publishedAt": "2026-09-05T00:00:00.000Z",
+      "source": "https://api.frankfurter.dev/",
+      "title": "Observed official fiat FX proxy for BRL",
+      "summary": "Last published price 5.1114 local currency per USD. This is an official fiat proxy, not a Twin token executable price.",
+      "publicationNote": "Uses original historical adapter publication lag; observedAt identifies the price day."
+    },
+    {
+      "id": "ibge-47739",
+      "publishedAt": "2026-08-11T12:00:00.000Z",
+      "source": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/47739-ipca-fica-em-0-07-em-julho.html",
+      "title": "IPCA fica em 0,07% em julho",
+      "summary": "Official IBGE release: monthly IPCA 0,07%. Twelve-month inflation 4,44%.",
+      "publicationNote": "Publication timestamp from IBGE news API; Brasilia UTC-3."
+    },
+    {
+      "id": "ibge-47847",
+      "publishedAt": "2026-08-26T12:00:00.000Z",
+      "source": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/47847-ipca-15-e-de-0-40-em-agosto.html",
+      "title": "IPCA-15 é de -0,40% em agosto",
+      "summary": "Official IBGE release: monthly IPCA-15 preview -0,40%.",
+      "publicationNote": "Publication timestamp from IBGE news API; Brasilia UTC-3."
+    }
+  ],
+  "fx": {
+    "spotLocalPerUsd": {
+      "value": 5.1114,
+      "publishedAt": "2026-09-05T00:00:00.000Z",
+      "sourceEventId": "fx-BRL-2026-09-04T00:00:00.000Z",
+      "observedAt": "2026-09-04T00:00:00.000Z"
+    },
+    "change7d": {
+      "value": 0.0059866181476702085,
+      "publishedAt": "2026-09-05T00:00:00.000Z",
+      "sourceEventId": "fx-BRL-2026-09-04T00:00:00.000Z",
+      "observedAt": "2026-09-04T00:00:00.000Z"
+    },
+    "change30d": {
+      "value": -0.006025746370857288,
+      "publishedAt": "2026-09-05T00:00:00.000Z",
+      "sourceEventId": "fx-BRL-2026-09-04T00:00:00.000Z",
+      "observedAt": "2026-09-04T00:00:00.000Z"
+    },
+    "marketForecastLocalPerUsd": {
+      "value": 5.2,
+      "publishedAt": "2026-09-01T03:00:00.000Z",
+      "sourceEventId": "bcb-focus-2026-08-28",
+      "horizonKind": "MONTHLY_AVERAGE",
+      "periodStart": "2026-10-01T00:00:00.000Z",
+      "periodEnd": "2026-10-31T23:59:59.999Z"
+    }
+  },
+  "inflation": {
+    "latestMonthly": {
+      "value": 0.0007000000000000001,
+      "publishedAt": "2026-08-11T12:00:00.000Z",
+      "sourceEventId": "ibge-47739"
+    },
+    "latestAnnual": {
+      "value": 0.0444,
+      "publishedAt": "2026-08-11T12:00:00.000Z",
+      "sourceEventId": "ibge-47739"
+    }
+  },
+  "rates": {
+    "policyRate": {
+      "value": 0.14,
+      "publishedAt": "2026-09-05T03:00:00.000Z",
+      "sourceEventId": "bcb-selic-2026-09-04",
+      "observedAt": "2026-09-04T03:00:00Z"
+    }
+  }
+}

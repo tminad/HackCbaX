@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-09-12T14:58:25.275Z",
+  "model": "gemini-3.6-flash",
+  "status": "PASSED",
+  "modelVersion": "gemini-3.6-flash",
+  "inputHash": "0857352c087fd6110a0227193bfce8941ecb2e8a41748cc7d2a6f507734e89b7",
+  "signal": {
+    "currency": "ARS",
+    "macroScore": -0.3,
+    "confidence": 0.75,
+    "impact": "negative",
+    "eventRisk": "medium",
+    "summary": "ARS faces short-term downward pressure due to expected monthly currency depreciation projected in the BCRA REM survey, with the wholesale exchange rate expected to rise from the current official spot of 1505 ARS/USD to 1530.40 in September and 1565 in October. Expected monthly CPI inflation of 1.8% also weighs on real purchasing power. This is partially offset by policy support from BCRA's reaffirmed monetary and fiscal inflation anchor alongside cumulative historical FX purchases.",
+    "factors": [
+      {
+        "sourceEventId": "bcra-ipom-2026-08-06",
+        "direction": "positive",
+        "reason": "BCRA reaffirmed its monetary and fiscal inflation anchor while highlighting accumulated FX purchases of USD 13,337 million through July 31."
+      },
+      {
+        "sourceEventId": "bcra-rem-2026-08",
+        "direction": "negative",
+        "reason": "Market survey consensus forecasts expected monthly CPI inflation of 1.8% and progressive exchange rate depreciation to 1530.40 in September and 1565 in October."
+      },
+      {
+        "sourceEventId": "fx-ARS-2026-09-05T00:00:00.000Z",
+        "direction": "negative",
+        "reason": "Official spot proxy at 1505 ARS/USD sits below the market consensus forecast of 1565 for October, indicating expected near-term depreciation against USD."
+      }
+    ]
+  }
+}

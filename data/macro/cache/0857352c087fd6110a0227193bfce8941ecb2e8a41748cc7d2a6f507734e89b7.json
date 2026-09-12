@@ -1,0 +1,38 @@
+{
+  "inputHash": "0857352c087fd6110a0227193bfce8941ecb2e8a41748cc7d2a6f507734e89b7",
+  "model": "gemini-3.6-flash",
+  "asOf": "2026-09-06T00:00:00.000Z",
+  "generatedAt": "2026-09-12T14:59:52.078Z",
+  "modelVersion": "gemini-3.6-flash",
+  "promptVersion": "macro-v1",
+  "signal": {
+    "currency": "ARS",
+    "macroScore": -0.3,
+    "confidence": 0.75,
+    "impact": "negative",
+    "eventRisk": "medium",
+    "summary": "The Argentine Peso (ARS) faces mild short-term macro pressure due to market expectations of nominal depreciation from the current spot level of 1505 ARS/USD towards 1530.40 in September and 1565 in October, along with expected monthly CPI inflation of 1.8%. This pressure is partially mitigated by BCRA's reaffirmed fiscal and monetary inflation anchors and reported past FX reserve accumulation.",
+    "factors": [
+      {
+        "sourceEventId": "bcra-ipom-2026-08-06",
+        "direction": "positive",
+        "reason": "BCRA reaffirmed its fiscal and monetary inflation anchor and reported USD 13,337 million in cumulative FX purchases through July 31."
+      },
+      {
+        "sourceEventId": "bcra-rem-2026-08",
+        "direction": "negative",
+        "reason": "REM survey participants project ARS nominal depreciation to 1530.40 in September and 1565 in October, with expected monthly CPI inflation of 1.8%."
+      },
+      {
+        "sourceEventId": "fx-ARS-2026-09-05T00:00:00.000Z",
+        "direction": "neutral",
+        "reason": "Official spot proxy recorded at 1505 ARS per USD, showing relatively stable short-term movement (+0.33% 7-day change, -0.66% 30-day change)."
+      }
+    ]
+  },
+  "sourceEventIds": [
+    "bcra-ipom-2026-08-06",
+    "bcra-rem-2026-08",
+    "fx-ARS-2026-09-05T00:00:00.000Z"
+  ]
+}

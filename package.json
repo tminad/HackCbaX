@@ -1,0 +1,36 @@
+{
+  "name": "latam-carry-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview --host 127.0.0.1",
+    "build:core": "tsc -p tsconfig.json",
+    "build:ui": "tsc -p tsconfig.ui.json && vite build",
+    "build": "npm run build:core && npm run build:ui",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.ui.json",
+    "test": "npm run build:core && node --test tests/domain.test.mjs tests/opportunityScanner.test.mjs tests/demoEngine.test.mjs tests/historical.test.mjs tests/macro.test.mjs",
+    "test:ui": "playwright test",
+    "demo": "npm run build:core && node scripts/demo.mjs",
+    "historical:discover": "npm run build:core && node scripts/discoverHistoricalData.mjs",
+    "historical:analyze": "npm run build:core && node scripts/analyzeHistoricalData.mjs",
+    "macro:collect": "npm run build:core && node scripts/collectMacroData.mjs",
+    "macro:historical": "npm run build:core && node --env-file=.env scripts/runHistoricalMacro.mjs",
+    "macro:gemini-smoke": "npm run build:core && node --env-file=.env scripts/geminiSmoke.mjs",
+    "macro:run": "npm run macro:collect && npm run macro:historical"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "5.9.3",
+    "vite": "^6.4.3"
+  },
+  "dependencies": {
+    "@google/genai": "^2.22.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

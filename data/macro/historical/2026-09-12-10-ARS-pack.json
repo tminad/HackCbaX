@@ -1,0 +1,91 @@
+{
+  "currency": "ARS",
+  "asOf": "2026-09-12T10:00:00.000Z",
+  "events": [
+    {
+      "id": "bcra-ipom-2026-08-06",
+      "publishedAt": "2026-08-07T03:00:00.000Z",
+      "source": "https://www.bcra.gob.ar/noticias/conferencia-prensa-ipom-segundo-trimestre-2026/",
+      "title": "BCRA second-quarter monetary-policy presentation",
+      "summary": "BCRA reaffirmed its fiscal and monetary inflation anchor. It reported USD 13,337 million in FX purchases through July 31. These are reported past purchases, not an FX forecast.",
+      "publicationNote": "Source dated August 6; exact clock unavailable. Conservatively usable after end of Argentina local day."
+    },
+    {
+      "id": "bcra-monetary-2026-08",
+      "publishedAt": "2026-09-08T03:00:00.000Z",
+      "source": "https://www.bcra.gob.ar/publicaciones/informe-monetario-mensual-agosto-de-2026/",
+      "title": "BCRA August monetary report",
+      "summary": "Private transactional M2 was stable in real seasonally adjusted terms. Monetary base rose 1.5% on that basis; private peso lending fell 1.0%.",
+      "publicationNote": "Source dated September 7; next local day used because exact publication clock is unavailable."
+    },
+    {
+      "id": "bcra-rem-2026-08",
+      "publishedAt": "2026-09-05T03:00:00.000Z",
+      "source": "https://www.bcra.gob.ar/archivos/Pdfs/PublicacionesEstadisticas/informes/tablas-relevamiento-expectativas-mercado-ago-2026.xlsx",
+      "title": "BCRA REM August 2026, released September 4",
+      "summary": "47 participants. Median monthly average wholesale USD forecasts: September 1530.397708358 ARS/USD, October 1565. September expected CPI 1.8% monthly. Expected September TAMAR 24.11% nominal annual is a bank deposit rate, not a policy rate.",
+      "publicationNote": "Release date verified on BCRA publication page. XLSX first worksheet: FX B52/D52 and B53/D53; CPI D8; TAMAR D39. Exact clock unavailable: next Argentina local day used."
+    },
+    {
+      "id": "fx-ARS-2026-09-11T00:00:00.000Z",
+      "publishedAt": "2026-09-12T00:00:00.000Z",
+      "source": "https://api.argentinadatos.com/v1/cotizaciones/dolares/oficial",
+      "title": "Observed official fiat FX proxy for ARS",
+      "summary": "Last published price 1510 local currency per USD. This is an official fiat proxy, not a Twin token executable price.",
+      "publicationNote": "Uses original historical adapter publication lag; observedAt identifies the price day."
+    },
+    {
+      "id": "indec-ipc-2026-08",
+      "publishedAt": "2026-09-11T03:00:00.000Z",
+      "source": "https://www.indec.gob.ar/uploads/informesdeprensa/ipc_09_26A1BE2DC4CD.pdf",
+      "title": "INDEC August 2026 CPI",
+      "summary": "National CPI rose 1.7% monthly and 33.5% year-on-year in August 2026.",
+      "publicationNote": "September 10 release date verified at INDEC Nivel4/Tema/3/5/31; PDF page 3. Conservatively next local day; absent from September 6 pack."
+    }
+  ],
+  "fx": {
+    "spotLocalPerUsd": {
+      "value": 1510,
+      "publishedAt": "2026-09-12T00:00:00.000Z",
+      "sourceEventId": "fx-ARS-2026-09-11T00:00:00.000Z",
+      "observedAt": "2026-09-11T00:00:00.000Z"
+    },
+    "change7d": {
+      "value": 0,
+      "publishedAt": "2026-09-12T00:00:00.000Z",
+      "sourceEventId": "fx-ARS-2026-09-11T00:00:00.000Z",
+      "observedAt": "2026-09-11T00:00:00.000Z"
+    },
+    "change30d": {
+      "value": -0.013245033112582738,
+      "publishedAt": "2026-09-12T00:00:00.000Z",
+      "sourceEventId": "fx-ARS-2026-09-11T00:00:00.000Z",
+      "observedAt": "2026-09-11T00:00:00.000Z"
+    },
+    "marketForecastLocalPerUsd": {
+      "value": 1565,
+      "publishedAt": "2026-09-05T03:00:00.000Z",
+      "sourceEventId": "bcra-rem-2026-08",
+      "periodStart": "2026-10-01T00:00:00.000Z",
+      "periodEnd": "2026-10-31T23:59:59.999Z",
+      "horizonKind": "MONTHLY_AVERAGE"
+    }
+  },
+  "inflation": {
+    "expectedMonthly": {
+      "value": 0.018,
+      "publishedAt": "2026-09-05T03:00:00.000Z",
+      "sourceEventId": "bcra-rem-2026-08"
+    },
+    "latestMonthly": {
+      "value": 0.017,
+      "publishedAt": "2026-09-11T03:00:00.000Z",
+      "sourceEventId": "indec-ipc-2026-08"
+    },
+    "latestAnnual": {
+      "value": 0.335,
+      "publishedAt": "2026-09-11T03:00:00.000Z",
+      "sourceEventId": "indec-ipc-2026-08"
+    }
+  }
+}

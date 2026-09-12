@@ -1,0 +1,50 @@
+{
+  "inputHash": "035339a1e0ff4b04d356f276a37b8f93fcf7d7d8a50fdc3384fb988d736e54b9",
+  "model": "gemini-3.6-flash",
+  "asOf": "2026-09-06T00:00:00.000Z",
+  "generatedAt": "2026-09-12T15:00:05.338Z",
+  "modelVersion": "gemini-3.6-flash",
+  "promptVersion": "macro-v1",
+  "signal": {
+    "currency": "BRL",
+    "macroScore": 0.45,
+    "confidence": 0.8,
+    "impact": "positive",
+    "eventRisk": "low",
+    "summary": "BRL benefits from strong carry support driven by a high 14% Selic policy rate alongside subdued near-term inflation (IPCA July at 0.07% and IPCA-15 August at -0.40%). This provides high real interest rates. Moderate counter-pressure comes from Focus survey expectations predicting slight depreciation toward 5.20 BRL/USD by October 2026.",
+    "factors": [
+      {
+        "sourceEventId": "bcb-selic-2026-09-04",
+        "direction": "positive",
+        "reason": "The Selic target rate stands at 14.0% per annum, offering substantial nominal yield support for BRL against USD."
+      },
+      {
+        "sourceEventId": "ibge-47847",
+        "direction": "positive",
+        "reason": "August IPCA-15 preview registered at -0.40%, indicating near-term deflationary pressure that increases real yield buffers."
+      },
+      {
+        "sourceEventId": "ibge-47739",
+        "direction": "positive",
+        "reason": "July IPCA showed monthly inflation of 0.07% and 12-month inflation of 4.44%, reinforcing positive real interest rates."
+      },
+      {
+        "sourceEventId": "bcb-focus-2026-08-28",
+        "direction": "negative",
+        "reason": "Focus survey medians project monthly average PTAX of 5.18 BRL/USD in Sept 2026 and 5.20 in Oct 2026, implying expected currency depreciation from current spot levels."
+      },
+      {
+        "sourceEventId": "fx-BRL-2026-09-04T00:00:00.000Z",
+        "direction": "neutral",
+        "reason": "Spot rate of 5.1114 reflects minor 7-day depreciation (+0.60%) alongside 30-day gain (-0.60%)."
+      }
+    ]
+  },
+  "sourceEventIds": [
+    "bcb-focus-2026-08-28",
+    "bcb-selic-2026-09-04",
+    "fx-BRL-2026-09-04T00:00:00.000Z",
+    "ibge-47739",
+    "ibge-47847"
+  ]
+}
